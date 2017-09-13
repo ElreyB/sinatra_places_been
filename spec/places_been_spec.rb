@@ -2,6 +2,10 @@ require 'rspec'
 require 'places_been'
 
 describe(PlacesBeen) do
+  before() do
+    PlacesBeen.clear()
+  end
+
   let(:place1){PlacesBeen.new("Japan")}
   describe('#name') do
     it 'will have a readable name'do
@@ -37,6 +41,13 @@ describe(PlacesBeen) do
       place2.save
       expect(place1.id).to(eq(1))
       expect(place2.id).to(eq(2))
+    end
+  end
+
+  describe('.find') do
+    it 'finds a place based on its id' do
+      place1.save
+      expect(PlacesBeen.find(1)).to(eq(place1))
     end
   end
 

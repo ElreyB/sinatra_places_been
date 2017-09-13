@@ -18,4 +18,13 @@ class PlacesBeen
   def self.clear
     @@places = []
   end
+
+  def self.find(id)
+    place_id = id.to_i()
+    @@places.find do |place|
+      if place.id == place_id
+        return place
+      end
+    end
+  end
 end
