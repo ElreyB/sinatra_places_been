@@ -20,7 +20,24 @@ describe(PlacesBeen) do
       place1.save
       expect(PlacesBeen.all).to(eq([place1]))
     end
+  end
 
+  describe('.clear') do
+    it 'will clear all items from the list' do
+      place1.save
+      PlacesBeen.clear
+      expect(PlacesBeen.all).to(eq([]))
+    end
+  end
+
+  describe('#id') do
+    it 'will increment an id by one each time a new place is added' do
+      place1.save
+      place2 = PlacesBeen.new("Spain")
+      place2.save
+      expect(place1.id).to(eq(1))
+      expect(place2.id).to(eq(2))
+    end
   end
 
 end
