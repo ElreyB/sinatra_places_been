@@ -4,11 +4,14 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 describe('places been', {:type => :feature}) do
-
-it "display specific place on page" do
+  before() do
+    PlacesBeen.clear()
+  end
+it "displays specific location on page" do
   visit('/')
-  fill_in('place', :with => 'Japan')
+  fill_in('location', :with => 'Japan')
   click_button('Submit!')
+  # save_and_open_page
   expect(page).to have_content("Japan")
 end
 

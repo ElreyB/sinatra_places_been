@@ -1,0 +1,14 @@
+<h2>List of Places You've Been</h2>
+
+<% @atlas.each do |location| %>
+  <h4><%= location.name %></h4>
+<% end %>
+
+<h4>Add a location to your personal atlas:</h4>
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input name="location" id="location" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn">Submit!</button>
+</form>
