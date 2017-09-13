@@ -14,6 +14,10 @@ post('/') do
   map_pin = PlacesBeen.new(place)
   map_pin.save()
   @atlas = PlacesBeen.all()
-  binding.pry
   erb(:atlas)
+end
+
+get('/map_pin/:id') do
+  @map_pin = PlacesBeen.find(params[:id])
+  erb(:map_pin)
 end

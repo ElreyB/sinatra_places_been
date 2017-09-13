@@ -1,7 +1,7 @@
 <h2>List of Places You've Been</h2>
 
 <% @atlas.each do |location| %>
-  <h4><%= location.name %></h4>
+  <h4><a href="map_pin/<%= location.id %>"><%= location.name %></a></h4>
 <% end %>
 
 <h4>Add a location to your personal atlas:</h4>
